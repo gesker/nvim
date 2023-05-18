@@ -1,0 +1,52 @@
+return {
+	{
+		"neovim/nvim-lspconfig",
+    -- stylua: ignore
+		dependencies = {
+			{ "j-hui/fidget.nvim", config = true },
+			{ "smjonas/inc-rename.nvim", config = true },
+			{ "folke/neodev.nvim", opts = { library = { plugins = { "neotest", "nvim-dap-ui" }, types = true }, },},
+			"williamboman/mason.nvim",
+			"williamboman/mason-lspconfig.nvim",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+      "nvim-telescope/telescope.nvim",
+		},
+    -- stylua: ignore
+		-- event = {"VeryLazy", "BufReadPre"},
+    -- stylua: ignore
+		keys = {
+    { "ld", "<Cmd>lua vim.diagnostic.open_float()<cr>", desc = "LSP Diagnostic Open Float", },
+			{ "[d", "<Cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "LSP Diagnostic GoTo Previous", },
+      { "]d", "<Cmd>lua vim.diagnostic.goto_next()<cr>", desc = "LSP Diagnostic GoTo Next", },
+      { "[e", "<Cmd>lua vim.diagnostic.goto_prev({severity = 'ERROR'})<cr>", desc = "Prev Error", },
+      { "]e", "<Cmd>lua vim.diagnostic.goto_next({severity = 'ERROR'})<cr>", desc = "Next Error", },
+      { "[w", "<Cmd>lua vim.diagnostic.goto_prev({severity = 'WARN'})<cr>", desc = "Prev Warning", },
+      { "]w", "<Cmd>lua vim.diagnostic.goto_next({severity = 'WARN'})<cr>", desc = "Next Warning", },
+			{ "<space>ll", "<Cmd>lua vim.diagnostic.setloclist()<cr>", desc = "LSP Diagnostic Set Location List", },
+			{ "lgD", "<Cmd>lua vim.lsp.buf.declaration()<cr>", desc = "LSP GoTo Declaration", },
+			{ "lgd", "<Cmd>lua vim.lsp.buf.definition()<cr>", desc = "LSP GoTo Definition", },
+			{ "lgi", "<Cmd>lua vim.lsp.buf.implementation()<cr>", desc = "LSP GoTo Implementation", },
+			{ "lgr", "<Cmd>lua vim.lsp.buf.references()<cr>", desc = "LSP GoTo References", },
+			{ "lH", "<Cmd>lua vim.lsp.buf.signature_help()<cr>", desc = "LSP Signature Show", },
+			{ "lh", "<Cmd>lua vim.lsp.buf.hover()<cr>", desc = "LSP Hover", },
+			{ "<space>lwa", "<Cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", desc = "LSP Workspace Add", },
+			{ "<space>lwr", "<Cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", desc = "LSP Workspace Remove", },
+			{ "<space>lwl", function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, desc = "LSP List Workspace", },
+			{ "<space>ld", "<Cmd>lua vim.lsp.buf.type_definition()<cr>", desc = "LSP Type Definition", },
+			{ "<space>lr", "<Cmd>lua vim.lsp.buf.rename()<cr>", desc = "LSP Rename", },
+			{ "<space>la", "<Cmd>lua vim.lsp.buf.code_action()<cr>", desc = "LSP Code Action", },
+			{ "<space>la", "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>", desc = "LSP Code Action Range", mode = "v", },
+			{ "<space>lf", function() vim.lsp.buf.format({ async = true }) end, desc = "LSP Format", },
+	    { "gd", ":Telescope lsp_definitions", desc = "Telescope Goto Definition" },
+	    { "gr", ":Telescope lsp_references", desc = "Telescope GoTo References" },
+	    { "gD", ":Telescope lsp_declarations", desc = "Telescope Goto Declaration" },
+	    { "gI", ":Telescope lsp_implementations", desc = "Telescope Goto Implementation" },
+	    { "gb", ":Telescope lsp_type_definitions", desc = "Telescope Goto Type Definition" },
+	    { "K", ":Lspsaga hover_doc", desc = "Hover" },
+      { "<leader>cs", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<cr>", desc = "Telescope Document Symbols", },
+      { "<leader>cS", "<Cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<cr>", desc = "Telescope Workspace Symbols", },
+	
+		},
+	},
+}

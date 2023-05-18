@@ -1,0 +1,54 @@
+1sudo apt install \
+  composer \
+  fd-find \
+  gem \
+  jdtls \
+  jq \
+  julia \
+  lua5.4 \
+  luarocks \
+  pgformatter \
+  php \
+  pip \
+  ripgrep \
+  shfmt\
+  terraform 
+
+pip install beautysh
+pip install prettier
+pip install yamlfix
+
+
+npm init @eslint/config
+npm install @bufbuild/buf
+npm install beautifier
+npm install eslint
+npm install fixjson
+npm install google-java-format
+npm install jsonls 
+npm install lua
+npm install lua-format
+npm install markdown-toc
+npm install markdownlint
+npm install nginxbeautifier;
+npm install prettier
+npm install prettier-eslint
+npm install tree-sitter
+
+
+sudo gem install htmlbeautifier
+
+cargo install stylua --features lua54
+cargo install tree-sitter-cli
+
+go install github.com/yoheimuta/protolint/cmd/protolint@latest
+go install github.com/bufbuild/buf/cmd/buf@latest
+go install github.com/charmbracelet/glow@latest
+
+luarocks install --server=https://luarocks.org/dev luaformatter
+
+
+# Run checkhealth and add any linters still in RED using Mason
+TSInstall regex
+LSPInstall jsonls
+LSPInstall lua_ls
